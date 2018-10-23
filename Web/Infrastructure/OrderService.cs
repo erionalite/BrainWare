@@ -1,49 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Web.Infrastructure
 {
     using System.Data;
     using Models;
 
-    public class OrderService
+    public class OrderService : IOrderService
     {
+        private readonly IDatabase _database;
+        private readonly IOrderContext _orderContext;
+        public OrderService(IDatabase database,IOrderContext orderContext)
+        {
+            _database = database;
+            _orderContext = orderContext;
+        }
+
         public List<Order> GetOrdersForCompany(int CompanyId)
         {
-
-            var database = new Database();
 
             // Get the orders
             var sql1 =
                 "SELECT c.name, o.description, o.order_id FROM company c INNER JOIN [order] o on c.company_id=o.company_id";
+            var result = _orderContext.Product.ToList();
+            var result3 = _orderContext.Companies.Where(c => c.company_id == CompanyId).FirstOrDefault();
+            var result2 = _orderContext.Orders.ToList();
+            //var reader1 = _database.ExecuteReader(sql1);
 
-            var reader1 = database.ExecuteReader(sql1);
 
-            var values = new List<Order>();
-            
-            while (reader1.Read())
+            var company = _orderContext.Companies.Where(c => c.company_id == CompanyId).FirstOrDefault();
+            var values = company.Orders.Select( order => new Order
             {
-                var record1 = (IDataRecord) reader1;
+                CompanyName = order.Company?.Name,
+                Description = order.Description,
+                OrderId = order.Order_Id,
+                OrderProducts = new List<OrderProduct>()
+            }).ToList<Order>();
+            //    new List<Order>();
 
-                values.Add(new Order()
-                {
-                    CompanyName = record1.GetString(0),
-                    Description = record1.GetString(1),
-                    OrderId = record1.GetInt32(2),
-                    OrderProducts = new List<OrderProduct>()
-                });
+            //while (reader1.Read())
+            //{
+            //    var record1 = (IDataRecord) reader1;
 
-            }
+            //    values.Add(new Order()
+            //    {
+            //        CompanyName = record1.GetString(0),
+            //        Description = record1.GetString(1),
+            //        OrderId = record1.GetInt32(2),
+            //        OrderProducts = new List<OrderProduct>()
+            //    });
 
-            reader1.Close();
+            //}
+
+            //reader1.Close();
 
             //Get the order products
             var sql2 =
                 "SELECT op.price, op.order_id, op.product_id, op.quantity, p.name, p.price FROM orderproduct op INNER JOIN product p on op.product_id=p.product_id";
 
-            var reader2 = database.ExecuteReader(sql2);
+            var reader2 = _database.ExecuteReader(sql2);
 
             var values2 = new List<OrderProduct>();
 

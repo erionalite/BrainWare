@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web.Infrastructure
+﻿namespace Web.Infrastructure
 {
     using System.Data.Common;
     using System.Data.SqlClient;
 
-    public class Database
+    public class Database : IDatabase
     {
         private readonly SqlConnection _connection;
 
         public Database()
         {
-            _connection = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=BrainWAre;Integrated Security=SSPI;AttachDBFilename=D:\\BrainWare\\Web\\App_Data\\BrainWare.mdf");
+            _connection = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=BrainWAre;Integrated Security=SSPI;AttachDBFilename=E:\\Development\\BrainWare\\Web\\App_Data\\BrainWare.mdf");
 
             _connection.Open();
         }

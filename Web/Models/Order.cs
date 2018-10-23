@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
 {
-    using System.Security.AccessControl;
-
     public class Order
     {
+        [Key]
+        public int Order_Id { get; set; }
         public int OrderId { get; set; }
 
         public string CompanyName { get; set; }
@@ -19,27 +17,5 @@ namespace Web.Models
 
         public List<OrderProduct> OrderProducts { get; set; }
 
-    }
-
-
-    public class OrderProduct
-    {
-        public int OrderId { get; set; }
-
-        public int ProductId { get; set; }
-
-        public Product Product { get; set; }
-    
-        public int Quantity { get; set; }
-
-        public decimal Price { get; set; }
-
-    }
-
-    public class Product
-    {
-        public string Name { get; set; }
-
-        public decimal Price { get; set; }
     }
 }
