@@ -179,18 +179,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Database.cs" />
-    <Compile Include="Infrastructure\IDatabase.cs" />
-    <Compile Include="Infrastructure\IOrderContext.cs" />
-    <Compile Include="Infrastructure\IOrderService.cs" />
-    <Compile Include="Infrastructure\OrderContext.cs" />
-    <Compile Include="Infrastructure\OrderService.cs" />
-    <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Order.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Repositories\IOrderContext.cs" />
+    <Compile Include="Repositories\ICompanyRepository.cs" />
+    <Compile Include="Services\IOrderService.cs" />
+    <Compile Include="Repositories\OrderContext.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Models\CompanyEntity.cs" />
+    <Compile Include="Models\DTO\Order.cs" />
     <Compile Include="Models\OrderEntity.cs" />
-    <Compile Include="Models\OrderProduct.cs" />
+    <Compile Include="Models\DTO\OrderProduct.cs" />
     <Compile Include="Models\OrderProductEntity.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\DTO\Product.cs" />
     <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
