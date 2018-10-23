@@ -191,6 +191,7 @@
     <Compile Include="Models\OrderProduct.cs" />
     <Compile Include="Models\OrderProductEntity.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

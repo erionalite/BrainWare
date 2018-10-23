@@ -15,7 +15,7 @@ namespace Web.Models
 
         public decimal OrderTotal { get; set; }
 
-        public List<OrderProduct> OrderProducts { get; set; }
+        public virtual List<OrderProduct> OrderProducts { get; set; }
 
     }
 }
