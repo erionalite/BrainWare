@@ -165,7 +165,6 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -181,19 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\CompanyRepository.cs" />
-    <Compile Include="Repositories\IOrderContext.cs" />
-    <Compile Include="Repositories\ICompanyRepository.cs" />
-    <Compile Include="Services\IOrderService.cs" />
-    <Compile Include="Repositories\OrderContext.cs" />
-    <Compile Include="Services\OrderService.cs" />
-    <Compile Include="Models\CompanyEntity.cs" />
-    <Compile Include="Models\DTO\Order.cs" />
-    <Compile Include="Models\OrderEntity.cs" />
-    <Compile Include="Models\DTO\OrderProduct.cs" />
-    <Compile Include="Models\OrderProductEntity.cs" />
-    <Compile Include="Models\DTO\Product.cs" />
-    <Compile Include="Models\ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="App\OrderApp.js" />
     <Content Include="Scripts\angular-animate.js" />
@@ -1025,6 +1011,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrainWare1\BrainWare.csproj">
+      <Project>{65684831-99e8-4d9a-8c9b-14c7817acac1}</Project>
+      <Name>BrainWare</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
