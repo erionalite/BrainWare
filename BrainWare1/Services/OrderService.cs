@@ -21,6 +21,7 @@ namespace Web.Infrastructure
             
             var company = _companyRepository.GetCompany(companyId);
 
+            if (company == null) return new List<Order>();
             var values = company.Orders.Select(order => new Order
             {
                 CompanyName = order.CompanyEntity?.Name,
